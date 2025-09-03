@@ -31,34 +31,34 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
-      <div className="container mx-auto px-6">
+    <section id="features" className="nestus-section-alt text-white">
+      <div className="nestus-container max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
-          <Badge className="mb-4 gradient-primary text-primary-foreground px-4 py-2 text-sm font-medium">
+          <Badge className="mb-6 bg-white/20 text-white border-white/30 px-6 py-3 text-sm font-semibold rounded-full">
             🚀 Powerful Features
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
             Everything You Need for 
-            <span className="gradient-hero bg-clip-text text-transparent block">
+            <span className="block text-white/90 mt-2">
               College Success
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed">
             NestUS brings together all aspects of your student life into one beautifully designed, easy-to-use mobile app.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
               <Card 
                 key={index}
-                className="group gradient-card border-primary/10 hover:border-primary/30 transition-smooth shadow-card hover:shadow-feature hover:-translate-y-2 animate-scale-bounce overflow-hidden"
-                style={{animationDelay: `${index * 0.2}s`}}
+                className="group bg-white/10 backdrop-blur-sm border-white/20 hover:border-white/40 hover:bg-white/15 transition-smooth shadow-card hover:shadow-feature hover:-translate-y-2 animate-stagger overflow-hidden"
+                style={{animationDelay: `${index * 0.15}s`}}
               >
                 <CardContent className="p-0">
                   
@@ -66,28 +66,29 @@ const Features = () => {
                   <div className="relative overflow-hidden">
                     <img 
                       src={feature.image}
-                      alt={`${feature.title} Screenshot`}
+                      alt={`${feature.title} - NestUS App Feature Screenshot`}
                       className="w-full h-64 object-cover transition-smooth group-hover:scale-110"
+                      loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     
                     {/* Badge Overlay */}
-                    <Badge className="absolute top-4 left-4 gradient-primary text-primary-foreground">
+                    <Badge className="absolute top-4 left-4 bg-white/90 text-primary border-0 font-semibold">
                       {feature.badge}
                     </Badge>
                     
                     {/* Icon Overlay */}
-                    <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-full shadow-glow">
+                    <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-glow">
                       <IconComponent className="h-6 w-6 text-primary" />
                     </div>
                   </div>
                   
                   {/* Feature Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-smooth">
+                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-white/90 transition-smooth">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-white/70 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -98,8 +99,8 @@ const Features = () => {
         </div>
 
         {/* Additional Features List */}
-        <div className="mt-16 text-center animate-slide-up">
-          <h3 className="text-2xl font-bold mb-8">And So Much More...</h3>
+        <div className="text-center animate-slide-up">
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-white">And So Much More...</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[
               { icon: Calendar, text: "Smart Calendar Sync" },
@@ -111,10 +112,11 @@ const Features = () => {
             ].map((item, index) => (
               <div 
                 key={index}
-                className="flex items-center gap-2 bg-background/60 backdrop-blur-sm border border-primary/20 px-4 py-2 rounded-full hover:bg-primary/10 transition-smooth"
+                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 px-5 py-3 rounded-full hover:bg-white/20 hover:border-white/40 transition-smooth animate-stagger"
+                style={{animationDelay: `${index * 0.1}s`}}
               >
-                <item.icon className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium">{item.text}</span>
+                <item.icon className="h-5 w-5 text-white" />
+                <span className="text-sm font-medium text-white">{item.text}</span>
               </div>
             ))}
           </div>
