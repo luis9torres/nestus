@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Smartphone } from "lucide-react";
+import { ArrowRight, Smartphone, Star, Users, Clock } from "lucide-react";
 import appDashboard from "@/assets/app-dashboard.jpg";
+import nestusLogo from "@/assets/nestus-logo.png";
 
 const Hero = () => {
   const scrollToWaitlist = () => {
@@ -25,54 +26,96 @@ const Hero = () => {
           
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8 animate-slide-up">
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-                <span className="block gradient-hero bg-clip-text text-transparent">
+            {/* Logo and Brand */}
+            <div className="flex items-center justify-center lg:justify-start gap-4 mb-8">
+              <img src={nestusLogo} alt="NestUS Logo" className="w-16 h-16 animate-pulse-glow" />
+              <div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-hero bg-clip-text text-transparent">
                   NestUS
-                </span>
-                <span className="block text-foreground text-3xl md:text-4xl lg:text-5xl mt-3 font-semibold">
-                  Your Campus Life, Simplified
-                </span>
-              </h1>
+                </h1>
+                <div className="flex items-center gap-2 mt-1">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <span className="text-sm text-muted-foreground font-medium">4.9/5 Beta Rating</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                Your Campus Life, <span className="gradient-hero bg-clip-text text-transparent">Simplified</span>
+              </h2>
               
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-                The all-in-one app every college student needs. Connect, organize, and thrive in your campus life.
+                Join <span className="font-semibold text-primary">12,847+ students</span> already waiting for the ultimate college companion app.
               </p>
+
+              {/* Social Proof & Urgency */}
+              <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 max-w-lg">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    {[...Array(4)].map((_, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 border-2 border-background"></div>
+                    ))}
+                  </div>
+                  <div className="text-sm">
+                    <div className="font-semibold text-foreground">Join 12,847+ students</div>
+                    <div className="text-muted-foreground flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      Limited early access spots
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
                 onClick={scrollToWaitlist}
                 size="lg" 
-                className="gradient-primary text-primary-foreground hover:scale-105 transition-smooth shadow-glow group px-8 py-4 text-lg rounded-2xl font-semibold"
+                className="gradient-primary text-primary-foreground hover:scale-105 transition-smooth shadow-glow group px-10 py-5 text-xl rounded-2xl font-bold relative overflow-hidden"
               >
-                Join Waitlist
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-base" />
+                <span className="relative z-10">Get Early Access FREE</span>
+                <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-base relative z-10" />
+                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></div>
               </Button>
               
               <Button 
                 onClick={scrollToFeatures}
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-primary/20 text-primary hover:bg-primary/10 hover:border-primary/40 px-8 py-4 text-lg rounded-2xl transition-smooth font-semibold"
+                className="border-2 border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50 px-8 py-5 text-lg rounded-2xl transition-smooth font-semibold"
               >
                 <Smartphone className="mr-2 h-5 w-5" />
-                See Features
+                Watch Demo
               </Button>
             </div>
 
-            <div className="flex items-center gap-8 justify-center lg:justify-start text-muted-foreground">
+            {/* Enhanced Social Proof */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-primary/10">
               <div className="text-center animate-stagger" style={{animationDelay: '0.2s'}}>
-                <div className="text-2xl font-bold text-primary">12K+</div>
-                <div className="text-sm font-medium">Students Waiting</div>
+                <div className="text-3xl font-bold gradient-hero bg-clip-text text-transparent">12,847+</div>
+                <div className="text-sm font-medium text-muted-foreground">Students Waiting</div>
+                <div className="flex justify-center mt-1">
+                  <Users className="w-4 h-4 text-primary" />
+                </div>
               </div>
               <div className="text-center animate-stagger" style={{animationDelay: '0.4s'}}>
-                <div className="text-2xl font-bold text-primary">75+</div>
-                <div className="text-sm font-medium">Universities</div>
+                <div className="text-3xl font-bold gradient-hero bg-clip-text text-transparent">75+</div>
+                <div className="text-sm font-medium text-muted-foreground">Universities</div>
+                <div className="flex justify-center mt-1">
+                  <div className="w-4 h-4 rounded bg-primary"></div>
+                </div>
               </div>
               <div className="text-center animate-stagger" style={{animationDelay: '0.6s'}}>
-                <div className="text-2xl font-bold text-primary">4.9★</div>
-                <div className="text-sm font-medium">Beta Rating</div>
+                <div className="text-3xl font-bold gradient-hero bg-clip-text text-transparent">4.9★</div>
+                <div className="text-sm font-medium text-muted-foreground">Beta Rating</div>
+                <div className="flex justify-center mt-1">
+                  <Star className="w-4 h-4 fill-primary text-primary" />
+                </div>
               </div>
             </div>
           </div>

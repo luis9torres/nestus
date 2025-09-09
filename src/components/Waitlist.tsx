@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Mail, Users, TrendingUp } from "lucide-react";
+import { CheckCircle, Mail, Users, TrendingUp, Clock, Zap, Gift } from "lucide-react";
 import { toast } from "sonner";
 
 const Waitlist = () => {
@@ -73,39 +73,61 @@ const Waitlist = () => {
   return (
     <section id="waitlist" className="nestus-section bg-background">
       <div className="nestus-container max-w-5xl mx-auto px-6">
-        
-        {/* Section Header */}
-        <div className="text-center mb-12 animate-slide-up">
-          <Badge className="mb-6 gradient-primary text-primary-foreground px-6 py-3 text-sm font-semibold rounded-full">
-            🎉 Be First in Line
-          </Badge>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
-            Join the <span className="gradient-hero bg-clip-text text-transparent">Waitlist</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Get exclusive early access to NestUS and be among the first students to revolutionize their campus experience.
-          </p>
+        <div className="space-y-6">
+          {/* Section Header */}
+          <div className="text-center mb-16 animate-slide-up">
+              <Badge className="mb-8 gradient-primary text-primary-foreground px-8 py-4 text-lg font-bold rounded-full shadow-glow">
+                🚀 Limited Time: FREE Early Access  
+              </Badge>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-foreground leading-tight">
+                Join <span className="gradient-hero bg-clip-text text-transparent">12,847+ Students</span>
+              </h2>
+              <p className="text-2xl md:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                Get <span className="font-bold text-primary">FREE lifetime access</span> when you join our waitlist. 
+                <br className="hidden md:block" />
+                Only <span className="font-bold text-primary animate-pulse">153 spots left</span> for early access!
+              </p>
+              
+              {/* Enhanced Urgency Timer */}
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-3xl p-6 max-w-lg mx-auto mt-8 shadow-lg">
+                <div className="flex items-center justify-center gap-3 text-red-600">
+                  <Clock className="w-6 h-6 animate-pulse" />
+                  <span className="font-bold text-lg">Early Access Ends in 72 Hours!</span>
+                </div>
+                <div className="text-sm text-red-500 mt-2 font-medium">Don't miss out on lifetime savings</div>
+              </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
-          {/* Waitlist Form */}
-          <Card className="gradient-card border-primary/20 shadow-feature animate-scale-in">
+          {/* Enhanced Waitlist Form */}
+          <Card className="gradient-card border-primary/20 shadow-feature animate-scale-in relative overflow-hidden">
+            {/* Premium Badge */}
+            <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-bold transform rotate-12 shadow-lg">
+              FREE Access
+            </div>
+            
             <CardContent className="p-8">
+              {/* Value Proposition */}
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-foreground mb-2">Get Lifetime Access FREE</h3>
+                <p className="text-muted-foreground">Join now and save $4.99/month forever!</p>
+              </div>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-4">
                   <label htmlFor="email" className="block text-sm font-semibold text-foreground">
-                    Email Address
+                    Enter Your College Email
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
                     <Input
                       id="email"
                       type="email"
-                      placeholder="Enter your college email"
+                      placeholder="your.email@university.edu"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="pl-12 py-4 text-lg border-2 border-primary/20 focus:border-primary/50 rounded-xl transition-base"
+                      className="pl-12 py-5 text-lg border-2 border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl transition-base"
                       required
                       disabled={isLoading}
                     />
@@ -115,9 +137,12 @@ const Waitlist = () => {
                 <Button 
                   type="submit" 
                   disabled={isLoading}
-                  className="w-full gradient-primary text-primary-foreground hover:scale-105 transition-smooth shadow-glow py-4 text-lg font-semibold rounded-xl"
+                  className="w-full gradient-primary text-primary-foreground hover:scale-105 transition-smooth shadow-glow py-6 text-xl font-bold rounded-xl relative overflow-hidden group"
                 >
-                  {isLoading ? "Joining..." : "Join Waitlist"}
+                  <span className="relative z-10">
+                    {isLoading ? "Securing Your Spot..." : "🎉 Get FREE Lifetime Access"}
+                  </span>
+                  <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></div>
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center leading-relaxed">
@@ -149,26 +174,34 @@ const Waitlist = () => {
               </CardContent>
             </Card>
 
-            {/* Benefits List */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold text-foreground">What You'll Get:</h3>
+            {/* Enhanced Benefits List */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-foreground">🎁 Exclusive Benefits Worth $59.97:</h3>
               
               {[
-                { icon: TrendingUp, title: "Early Access", desc: "Be first to download when we launch" },
-                { icon: Mail, title: "Exclusive Updates", desc: "Behind-the-scenes development insights" },
-                { icon: Users, title: "Beta Testing", desc: "Help shape the final product" },
+                { icon: Zap, title: "Lifetime FREE Access", desc: "Save $4.99/month forever (Value: $59.88/year)", highlight: true },
+                { icon: Gift, title: "Exclusive Beta Features", desc: "Get premium features first, before anyone else" },
+                { icon: TrendingUp, title: "Priority Support", desc: "Direct line to our development team" },
+                { icon: Users, title: "VIP Community Access", desc: "Join exclusive Discord with founders" },
               ].map((benefit, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-4 p-4 bg-secondary/30 rounded-xl hover:bg-secondary/50 transition-base animate-stagger"
+                  className={`flex items-start gap-4 p-5 rounded-xl transition-base animate-stagger border-2 ${
+                    benefit.highlight 
+                      ? 'bg-gradient-to-r from-primary/10 to-purple-500/10 border-primary/30 shadow-lg' 
+                      : 'bg-secondary/20 border-secondary/30 hover:bg-secondary/40'
+                  }`}
                   style={{animationDelay: `${index * 0.1}s`}}
                 >
-                  <div className="bg-primary/10 p-2 rounded-lg">
-                    <benefit.icon className="w-5 h-5 text-primary" />
+                  <div className={`p-3 rounded-lg ${benefit.highlight ? 'bg-primary shadow-glow' : 'bg-primary/10'}`}>
+                    <benefit.icon className={`w-6 h-6 ${benefit.highlight ? 'text-white' : 'text-primary'}`} />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">{benefit.title}</h4>
-                    <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-foreground text-lg">{benefit.title}</h4>
+                    <p className="text-muted-foreground">{benefit.desc}</p>
+                    {benefit.highlight && (
+                      <div className="mt-2 text-sm font-semibold text-primary">✨ Limited Time Only!</div>
+                    )}
                   </div>
                 </div>
               ))}
